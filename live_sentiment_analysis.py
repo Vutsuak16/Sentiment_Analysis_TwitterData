@@ -10,21 +10,24 @@ CONSUMER_SECRET = '7suZUiu1OUIo1TUpiiyHPDLNo8fWMkjf7d6N9zBCLKaX3JLwjb'
 
 
 class StdOutListener(tweepy.StreamListener):
-    def on_data(self, data):
-        j= json.loads(data)
-        print j['text']
-        return True
 
-    def on_error(self, status):
-        print status
+        def on_data(self, data):
+            try:
+                j= json.loads(data)
+                print j['text']
+                return True
+            except:
+                print "Some error occured"
+                return True
+
+
+        def on_error(self, status):
+            print status
 
 
 if __name__ == 'vutsuak':
-    # This handles Twitter authetification and the connection to Twitter Streaming API
     l = StdOutListener()
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
     stream = tweepy.Stream(auth, l)
-
-    # This line filter Twitter Streams to capture data by the keywords: 'python', 'javascript', 'ruby'
-    stream.filter(track=['bangalore'])
+    stream.filter(track=['life'])
