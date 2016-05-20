@@ -10,19 +10,21 @@ CONSUMER_SECRET = '7suZUiu1OUIo1TUpiiyHPDLNo8fWMkjf7d6N9zBCLKaX3JLwjb'
 
 
 class StdOutListener(tweepy.StreamListener):
+    def __init__(self):
+        self.limit = 250
+        self.number_of_tweets = 0
 
-        def on_data(self, data):
-            try:
-                j= json.loads(data)
-                print j['text']
-                return True
-            except:
-                print "Some error occured"
-                return True
+    def on_data(self, status):
+        self.number_of_tweets += 1
+        print json.loads(status)['text']
+        if not (self.number_of_tweets < self.limit):
+            print "LIMIT REACHED"
+            return False
+        else:
+            return True
 
-
-        def on_error(self, status):
-            print status
+    def on_error(self, status):
+        print status
 
 
 if __name__ == 'vutsuak':
@@ -30,4 +32,4 @@ if __name__ == 'vutsuak':
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
     stream = tweepy.Stream(auth, l)
-    stream.filter(track=['life'])
+    stream.filter(track=['virat'])
