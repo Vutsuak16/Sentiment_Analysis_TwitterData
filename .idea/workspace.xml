@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d6bce9d-3a2c-4e99-9fce-8f06684245eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/live_sentiment_analysis.py" afterPath="$PROJECT_DIR$/live_sentiment_analysis.py" />
-    </list>
+    <list default="true" id="9d6bce9d-3a2c-4e99-9fce-8f06684245eb" name="Default" comment="" />
     <ignored path="Sentiment_Analysis_TwitterData.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
